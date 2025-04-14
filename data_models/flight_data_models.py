@@ -60,7 +60,7 @@ class PriceInsights(BaseModel):
     lowest_price: int
     price_level: str
     typical_price_range: List[int]
-    price_history: List[List[Union[int, float]]]
+    price_history: Optional[List[List[Union[int, float]]]] = None
 
 class AirportLocation(BaseModel):
     airport: AirportInfo
