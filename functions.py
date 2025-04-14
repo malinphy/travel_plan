@@ -29,3 +29,17 @@ def flight_search(departure_id:str, arrival_id:str, outbound_data:str, return_da
     response = search.json()
 
     return response
+
+
+def yelp_search(search_term:str, location:str ):
+    params = {
+    "engine": "yelp",
+    "find_desc": search_term,
+    "find_loc": location,
+    "api_key": api_key
+    }
+
+    search = GoogleSearch(params)
+    results = search.get_dict()
+    organic_results = results["organic_results"]
+    return organic_results
