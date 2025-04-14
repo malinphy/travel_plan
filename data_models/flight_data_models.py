@@ -38,7 +38,7 @@ class CarbonEmissions(BaseModel):
 
 class BestFlight(BaseModel):
     flights: List[Flight]
-    layovers: List[Layover]
+    layovers: Optional[List[Layover]] = None
     total_duration: int
     carbon_emissions: CarbonEmissions
     price: int  # Required for best flights
@@ -48,7 +48,7 @@ class BestFlight(BaseModel):
 
 class OtherFlight(BaseModel):
     flights: List[Flight]
-    layovers: List[Layover]
+    layovers: Optional[List[Layover]] = None
     total_duration: int
     carbon_emissions: CarbonEmissions
     price: Optional[int] = None  # Made optional for other flights
@@ -99,7 +99,7 @@ class SearchParameters(BaseModel):
 class FlightSearchResults(BaseModel):
     search_metadata: SearchMetadata
     search_parameters: SearchParameters
-    best_flights: List[BestFlight]
-    other_flights: List[OtherFlight]
-    price_insights: PriceInsights
-    airports: List[Airports]
+    best_flights: Optional[List[BestFlight]] = None  # Made optional
+    other_flights: Optional[List[OtherFlight]] = None  # Made optional
+    price_insights: Optional[PriceInsights] = None  # Made optional
+    airports: Optional[List[Airports]] = None  # Made optional

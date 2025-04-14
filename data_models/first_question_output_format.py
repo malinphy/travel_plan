@@ -2,18 +2,20 @@ from pydantic import Field, BaseModel# for flight api
 
 
 class FlightOutput(BaseModel):
-    departure_id : str 
-#     = Field(description="""
-# Parameter defines the departure airport code or location kgmid.
-# An airport code is an uppercase 3-letter code. 
-# For example, CDG is Paris Charles de Gaulle Airport and AUS is Austin-Bergstrom International Airport.
-# """)
-    arrival_id : str
-#     = Field(description="""
-# Parameter defines the arrival airport code or location kgmid.
-# An airport code is an uppercase 3-letter code.
-# For example, CDG is Paris Charles de Gaulle Airport and AUS is Austin-Bergstrom International Airport.
-# """)
+    departure_id : str = Field(description="""
+Parameter defines the arrival airport code IATA code.
+An airport code is an uppercase 3-letter code. 
+For example, CDG is Paris Charles de Gaulle Airport and AUS is Austin-Bergstrom International Airport.
+Always return IATA code.                               
+""")
+    arrival_id : str = Field(description="""
+Parameter defines the arrival airport code IATA code.
+An airport code is an uppercase 3-letter code.
+For example, CDG is Paris Charles de Gaulle Airport and AUS is Austin-Bergstrom International Airport.
+Always return IATA code.
+                             
+                        
+""")
     outbound_data : str 
     return_data : str 
 
