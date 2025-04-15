@@ -62,7 +62,7 @@ class Property(BaseModel):
     serpapi_property_details_link: HttpUrl
     gps_coordinates: GPSCoordinates
     check_in_time: Optional[str] = None
-    check_out_time: str
+    check_out_time: Optional[str] = None
     rate_per_night: Rate
     total_rate: Rate
     deal: Optional[str] = None
