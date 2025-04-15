@@ -61,7 +61,7 @@ def hotels_search(q:str, check_in_date:str, check_out_date:str, gl:str):
             "currency": "USD",
             "gl": gl,
             "hl": "en",
-            "api_key": "06308305345bc9d73b8207f48b29d3f871e7a6c28e886739d62591f264da5366"
+            "api_key": api_key
             }
 
     search = GoogleSearch(params)

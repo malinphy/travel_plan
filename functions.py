@@ -43,3 +43,27 @@ def yelp_search(search_term:str, location:str ):
     results = search.get_dict()
     organic_results = results["organic_results"]
     return organic_results
+
+
+def hotels_search(q:str, check_in_date:str, check_out_date:str, gl:str):
+    """
+    Google hotels information from SERPAPI. Returns json structure
+    q : Search Query
+    gl : Country
+    """
+    params = {
+            "engine": "google_hotels",
+            "q": q,
+            "check_in_date": check_in_date,
+            "check_out_date": check_out_date,
+            "adults": "2",
+            "currency": "USD",
+            "gl": gl,
+            "hl": "en",
+            "api_key": api_key
+            }
+
+    search = GoogleSearch(params)
+    results = search.get_dict()
+
+    return results
