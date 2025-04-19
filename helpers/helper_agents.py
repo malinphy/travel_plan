@@ -164,13 +164,38 @@ I need recommendations for business travel to Tokyo in October, including hotels
 ```
 </example_output>
 """,
+model = 'gpt-4o-mini',
 model_settings = ModelSettings(temperature = 0.0, max_tokens = 1024*3)
 )
 
-recommender_agent = Agent(
-    name = "travel_planner_agent",
-    instructions="""
 
 
+
+responsive_agent = Agent(
+    name = "travel_info", 
+    model = 'gpt-4o-mini',
+    model_settings = ModelSettings(temperature=0.0,max_tokens=1024), 
+    instructions=""" 
+You are an experienced travel assistant who helps the user to fill the missing infomation about their journey.
+Please ask the user to fill the following questions, if there is any missing one. 
+
+-starting_point :
+-starting_date : 
+-destination : 
+-end_date :
+-accommodation preferences (e.g., hostels, hotels, camping):
+
+Note :  Do not add more question than the given ones.
 """
+)
+
+recommender_agent = Agent(
+    name = "travel_recommender", 
+    model = 'gpt-4o-mini', 
+    model_settings=ModelSettings(temperature= 0.0, max_tokens = 1024),
+    instructions=""" 
+You are an experienced travel assistant who helps users. If users give details about his/her personality, destination choice, dates, individual or group trip, etc, recommend sth according to the provided information, but do not ask further questions. 
+Check If users do not provide any details, recommend a general plan; do not ask for further questions, and make it short.
+""",
+    handoffs=[responsive_agent]
 )
