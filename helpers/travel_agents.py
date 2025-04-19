@@ -48,7 +48,7 @@ return_date : Parameter defines the return date. The format is YYYY-MM-DD. e.g. 
 
 # h_agent 
 h_agent = Agent(
-    name = "Google hotels information",
+    name = "Hotels Assistant agent",
     instructions= """Returns google hotels information as a json.     
     q : Search Query
     gl : Country""",
