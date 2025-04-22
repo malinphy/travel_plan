@@ -111,7 +111,7 @@ def flight_search_2(departure_id: str, arrival_id: str, outbound_data: str, retu
 def hotels_search2(q:str, check_in_date:str, check_out_date:str, gl:str):
     """
     Google hotels information from SERPAPI. Returns json structure
-    q : Search Query
+    q : Location
     gl : Country
     """
     params = {
