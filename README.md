@@ -139,4 +139,4 @@ Here are the rewritten queries in the same manner:
    - flights, hotels, activities  
    - adventure sports, sightseeing  
 
-Let me know if you'd like any modifications!
+![alt text](image.png)
