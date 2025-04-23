@@ -22,7 +22,9 @@ Question : I want to travel to the amsterdam from ankara, the dates will be 2025
 
 
 ```json
-{{"subquestions": [
+{{
+"modified_question" : None,
+"subquestions": [
     {{
         "id": 1,
         "sub_question": "What are the flight options from Ankara to Amsterdam at 2025-05-13 ?",
@@ -48,7 +50,8 @@ Question : I want to travel to the amsterdam from ankara, the dates will be 2025
         "sub_question": "What are the flight options from London to Ankara at 2025-05-19",
         "depends_on": []
     }}
-]}}
+],
+}}
 </example>
 
 <example>
@@ -56,13 +59,16 @@ Question : What are the flight options from Barcelona to New York at 2025-05-13?
 
 
 ```json
-{{"subquestions": [
+{{
+"modified_question" : None,
+"subquestions": [
     {{
         "id": 1,
         "sub_question": What are the flight options from Barcelona to New York at 2025-05-13?,
         "depends_on": []
     }}
-]}}
+]
+}}
 </example>
 
 
@@ -71,13 +77,16 @@ Question : What are the hotel options in London at 2025-05-13?
 
 ### Example output
 ```json
-{{"subquestions": [
+{{
+"modified_question" : None,
+"subquestions": [
     {{
         "id": 1,
         "sub_question": What are the hotel options in London at 2025-05-13?,
         "depends_on": []
     }}
-]}}
+]
+}}
 
 
 ### Example input 
@@ -85,7 +94,9 @@ Question : What are the hotel options in London at 2025-05-13?
 
 ### Example output
 ```json
-{{"subquestions": [
+{{
+"modified_question" : None,
+"subquestions": [
     {{
         "id": 1,
         "sub_question": What are the hotel options in London at 2025-05-13?,
@@ -96,13 +107,16 @@ Question : What are the hotel options in London at 2025-05-13?
 
 Question : What about Manchester?
 ```json
-{{"subquestions": [
+{{
+"modified_question" : What are the hotel options in Manchester at 2025-05-13?,
+"subquestions": [
     {{
         "id": 1,
         "sub_question": What are the hotel options in Manchester at 2025-05-13?,
         "depends_on": []
     }}
-]}}
+]
+}}
 </example>
 
 Note : If the question includes departure and arrival information just generate sub questions from the given question do not expand the scope of the question.
