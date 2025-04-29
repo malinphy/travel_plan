@@ -140,3 +140,4 @@ Here are the rewritten queries in the same manner:
    - adventure sports, sightseeing  
 
 ![alt text](image.png)
+
