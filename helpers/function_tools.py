@@ -2,6 +2,8 @@ from agents import function_tool
 import wikipedia
 import requests
 import os 
+import numpy as np 
+import pandas as pd
 from dotenv import load_dotenv
 load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.environ['OPENAI_API_KEY_MALI']
@@ -184,3 +186,14 @@ def yelp_search2(search_term: str, location: str) -> list:
     Price : {Business(**organic_results[i]).price}
     """
     return yelp_search_res
+
+@function_tool
+def city_to_airport_code(city:str)->str:
+    """
+    This function takes the city name and returns the IATA code of the airport in the given city.
+    An IATA code is a three-letter identifier, also known as an IATA location identifier, used to designate airports and some non-airport locations like train or ferry stations
+    """
+    df = pd.read_csv(r"E:\PERSONAL_PROJ\travel_plan\airport_data\airports.csv")
+    con1 = df['city'] == city
+    con2 = ~pd.isna(df['iata'])
+    return df[con1 & con2]['iata']
