@@ -20,6 +20,7 @@ from agents import Agent, Runner,function_tool,trace, ItemHelpers, MessageOutput
 from data_models.hotel_data_models import Property
 from data_models.yelp_data_models import Category, Business
 from helpers.helper_functions import assemble_conversation
+from IPython.display import Markdown, display
 
 
 
@@ -197,3 +198,32 @@ def city_to_airport_code(city:str)->str:
     con1 = df['city'] == city
     con2 = ~pd.isna(df['iata'])
     return df[con1 & con2]['iata']
+
+@function_tool
+def ticket_to_markdown(departure_city : str, destination_city:str, inbound_date: str, outbound_date:str, price:str)->None:
+    """ 
+    
+    """
+
+    ticket = f"""# ✈️ Boarding Pass
+
+**Flight:** ABC1285  
+**Boarding Time:** 10:20  
+**Gate:** 15  
+**Seat:** 11A  
+**Class:** Economy  
+
+---
+
+**Passenger Name:** John / Doe  
+**From:** {departure_city}  
+**To:** {destination_city}  
+**inbound_date:** {inbound_date} 
+**outbound_date:** {outbound_date} 
+
+**Price:** {price}
+---
+
+**E-Ticket:** 220-1408858707
+""".strip()
+    display(Markdown(ticket.format(departure_city= departure_city, destination_city=destination_city, inbound_date=inbound_date, outbound_date=outbound_date, price=price)))
