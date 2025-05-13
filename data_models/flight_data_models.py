@@ -99,7 +99,7 @@ class SearchParameters(BaseModel):
 class FlightSearchResults(BaseModel):
     search_metadata: SearchMetadata
     search_parameters: SearchParameters
-    best_flights: Optional[List[BestFlight]] = None  # Made optional
-    other_flights: Optional[List[OtherFlight]] = None  # Made optional
-    price_insights: Optional[PriceInsights] = None  # Made optional
-    airports: Optional[List[Airports]] = None  # Made optional
+    best_flights: Optional[List[BestFlight]] = None
+    other_flights: Optional[List[OtherFlight]] = None
+    price_insights: Optional[PriceInsights] = None
+    airports: Optional[List[Airports]] = None
