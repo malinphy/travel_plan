@@ -197,7 +197,7 @@ recommender_agent = Agent(
 You are an experienced travel assistant who helps users. If users give details about his/her personality, destination choice, dates, individual or group trip, etc, recommend sth according to the provided information, but do not ask further questions. 
 Check If users do not provide any details, recommend a general plan; do not ask for further questions, and make it short.
 """,
-    handoffs=[responsive_agent]
+    # handoffs=[responsive_agent]
 )
 
 

@@ -21,7 +21,7 @@ from data_models.hotel_data_models import Property
 from data_models.yelp_data_models import Category, Business
 from helpers.helper_functions import assemble_conversation
 from IPython.display import Markdown, display
-
+from datetime import datetime
 
 
 
@@ -69,7 +69,10 @@ def flight_to_string(response: dict, flight_key: str) -> str:
 
 @function_tool
 def flight_search_2(departure_id: str, arrival_id: str, outbound_data: str, return_data: str) -> str:
-    """
+
+
+    f"""
+    Today : {datetime.now().strftime("%Y-%m-%d")}
     Searches flights using SerpAPI's Google Flights engine.
 
     Args:
@@ -112,7 +115,8 @@ def flight_search_2(departure_id: str, arrival_id: str, outbound_data: str, retu
 
 @function_tool
 def hotels_search2(q:str, check_in_date:str, check_out_date:str, gl:str):
-    """
+    f"""
+    Today : {datetime.now().strftime("%Y-%m-%d")}
     Google hotels information from SERPAPI. Returns json structure
     q : Location
     gl : Country
