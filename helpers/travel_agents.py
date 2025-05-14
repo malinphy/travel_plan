@@ -29,7 +29,7 @@ Try to extract the search terms from the question
 
 f_agent = Agent(name="Flight Assistant agent",
               instructions=f"""
-Always answer in Turkish language. Return all the given flight information
+Always answer in given language. Return the information from the given tool do not add extra information.
 
 departure_id : Parameter defines the departure airport code or location kgmid. An airport code is an uppercase 3-letter code. For example, CDG is Paris Charles de Gaulle Airport and AUS is Austin-Bergstrom International Airport.
 
@@ -38,12 +38,18 @@ arrival_id : Parameter defines the arrival airport code or location kgmid. An ai
 outbound_date : Parameter defines the outbound date. The format is YYYY-MM-DD. e.g. 2025-04-09
 
 return_date : Parameter defines the return date. The format is YYYY-MM-DD. e.g. 2025-04-15
+
+
 Today : {datetime.now().strftime("%Y-%m-%d")}
+
+!!! Warning if departure_id, arrival_id, outbound_date or return_date is missing or cannot extract from the sentence, do not determine alone always ask the user.
 """,
               model="gpt-4o-mini",
               # model = 'gpt-4o',
               model_settings=ModelSettings(temperature= 0.0,
-                                 max_tokens = 4096*8),
+                                #  max_tokens = 4096*8
+                                tool_choice="required",
+                                 ),
             tools= [flight_search_2]
               )
 
@@ -56,7 +62,8 @@ h_agent = Agent(
     model = 'gpt-4o-mini',
     tools=[hotels_search2],
     model_settings=ModelSettings(temperature= 0.0,
-                                 max_tokens = 4096*2),
+                                #  max_tokens = 4096*2
+                                 ),
 )
 
 
@@ -69,7 +76,8 @@ y_agent = Agent(
     model = 'gpt-4o-mini',
     tools=[yelp_search2],
     model_settings=ModelSettings(temperature= 0.0,
-                                 max_tokens = 4096*2),
+                                #  max_tokens = 4096*2
+                                 ),
 )
 
 t_agent = Agent(
