@@ -24,7 +24,7 @@ class Price(BaseModel):
     logo: HttpUrl
     num_guests: int
     rate_per_night: Rate
-    free_cancellation: Optional[bool] = None  # Made optional
+    free_cancellation: Optional[bool] = None
     free_cancellation_until_date: Optional[str] = None
     free_cancellation_until_time: Optional[str] = None
 
@@ -57,23 +57,23 @@ class Property(BaseModel):
     type: str
     name: str
     description: Optional[str] = None
-    link: Optional[HttpUrl] = None  # Made optional
+    link: Optional[HttpUrl] = None  
     property_token: str
     serpapi_property_details_link: HttpUrl
     gps_coordinates: GPSCoordinates
     check_in_time: Optional[str] = None
     check_out_time: Optional[str] = None
-    rate_per_night: Rate
-    total_rate: Rate
+    rate_per_night: Optional[Rate] = None 
+    total_rate: Optional[Rate] = None  
     deal: Optional[str] = None
     deal_description: Optional[str] = None
-    nearby_places: List[NearbyPlace]
+    nearby_places: Optional[List[NearbyPlace]] = None
     hotel_class: Optional[str] = None
     extracted_hotel_class: Optional[int] = None
-    images: List[Image]
-    overall_rating: Optional[Union[float, int]] = None  # Made optional
-    reviews: Optional[int] = None  # Made optional
-    ratings: Optional[List[Rating]] = None  # Made optional
+    images: Optional[List[Image]] = None
+    overall_rating: Optional[Union[float, int]] = None  
+    reviews: Optional[int] = None 
+    ratings: Optional[List[Rating]] = None  
     location_rating: Union[float, int]
     reviews_breakdown: Optional[List[ReviewsBreakdown]] = None
     amenities: Optional[List[str]] = None
