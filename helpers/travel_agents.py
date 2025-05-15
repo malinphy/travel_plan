@@ -31,9 +31,9 @@ f_agent = Agent(name="Flight Assistant agent",
               instructions=f"""
 Always answer in given language. Return the information from the given tool do not add extra information.
 
-departure_id : Parameter defines the departure airport code or location kgmid. An airport code is an uppercase 3-letter code. For example, CDG is Paris Charles de Gaulle Airport and AUS is Austin-Bergstrom International Airport.
+departure_id : Parameter defines the departure airport code. An airport code is an uppercase 3-letter code. For example, CDG is Paris Charles de Gaulle Airport and AUS is Austin-Bergstrom International Airport.
 
-arrival_id : Parameter defines the arrival airport code or location kgmid. An airport code is an uppercase 3-letter code. You can search for it on Google Flights or IATA. For example, CDG is Paris Charles de Gaulle Airport and AUS is Austin-Bergstrom International Airport.
+arrival_id : Parameter defines the arrival airport code. An airport code is an uppercase 3-letter code. You can search for it on Google Flights or IATA. For example, CDG is Paris Charles de Gaulle Airport and AUS is Austin-Bergstrom International Airport.
 
 outbound_date : Parameter defines the outbound date. The format is YYYY-MM-DD. e.g. 2025-04-09
 
@@ -57,11 +57,14 @@ Today : {datetime.now().strftime("%Y-%m-%d")}
 h_agent = Agent(
     name = "Hotels Assistant agent",
     instructions=f"""Returns google hotels information.     
-    q : Location
-    gl : Country
-    Today : {datetime.now().strftime("%Y-%m-%d")}
-    !! Warning, while tool calling do not send date before today's date
-    """,
+q : Location
+gl : Country
+check_in_date: Parameter defines the check-in date. The format is YYYY-MM-DD. e.g. 2025-04-09, 
+check_out_date: Parameter defines the check-out date. The format is YYYY-MM-DD. e.g. 2025-04-09,
+Today : {datetime.now().strftime("%Y-%m-%d")}
+!!! Warning, while tool calling do not send date before today's date
+!!! Warning if q, gl, check_in_date or check_out_date is missing or cannot extract from the sentence, do not determine alone always ask the user.
+    """.strip(),
     model = 'gpt-4o-mini',
     tools=[hotels_search2],
     model_settings=ModelSettings(temperature= 0.0,
