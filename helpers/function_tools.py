@@ -135,7 +135,22 @@ def flight_search_2(
     )
 
 @function_tool
-def hotels_search2(q:str, check_in_date:str, check_out_date:str, gl:str):
+def hotels_search2(
+    q:Optional[str] = None, 
+    check_in_date:Optional[str] = None, 
+    check_out_date:Optional[str] = None, 
+    gl:Optional[str] = None
+    ):
+
+    if check_in_date == None and check_out_date == None: 
+        return "please identify the check-in and check-out date for more information"
+    
+    elif check_in_date == None:
+        return "please inform me about check-in date"
+    
+    elif check_out_date == None:
+        return "please inform me about check-out date"
+    
     f"""
     
     Google hotels information from SERPAPI. Returns json structure
