@@ -76,7 +76,7 @@ class Property(BaseModel):
     ratings: Optional[List[Rating]] = None  # Made optional
     location_rating: Union[float, int]
     reviews_breakdown: Optional[List[ReviewsBreakdown]] = None
-    amenities: List[str]
+    amenities: Optional[List[str]] = None
     eco_certified: Optional[bool] = False
     excluded_amenities: Optional[List[str]] = None
     essential_info: Optional[List[str]] = None

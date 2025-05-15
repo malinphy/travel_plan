@@ -26,15 +26,15 @@ class Flight(BaseModel):
     plane_and_crew_by: Optional[str] = None
 
 class Layover(BaseModel):
-    duration: int
-    name: str
-    id: str
+    duration: Optional[int] = None
+    name: Optional[str] = None
+    id: Optional[str] = None
     overnight: Optional[bool] = None
 
 class CarbonEmissions(BaseModel):
-    this_flight: int
-    typical_for_this_route: int
-    difference_percent: int
+    this_flight: Optional[int] = None
+    typical_for_this_route: Optional[int] = None
+    difference_percent: Optional[int] = None
 
 class BestFlight(BaseModel):
     flights: List[Flight]
