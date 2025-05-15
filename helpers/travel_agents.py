@@ -56,9 +56,12 @@ Today : {datetime.now().strftime("%Y-%m-%d")}
 # h_agent 
 h_agent = Agent(
     name = "Hotels Assistant agent",
-    instructions= """Returns google hotels information.     
+    instructions=f"""Returns google hotels information.     
     q : Location
-    gl : Country""",
+    gl : Country
+    Today : {datetime.now().strftime("%Y-%m-%d")}
+    !! Warning, while tool calling do not send date before today's date
+    """,
     model = 'gpt-4o-mini',
     tools=[hotels_search2],
     model_settings=ModelSettings(temperature= 0.0,
@@ -69,9 +72,10 @@ h_agent = Agent(
 
 y_agent = Agent(
     name = "Yelp Search information",
-    instructions= """Returns Yelp search results.     
+    instructions= f"""Returns Yelp search results.     
     search_term: str, 
     location: str
+    Today : {datetime.now().strftime("%Y-%m-%d")}
     """.strip(),
     model = 'gpt-4o-mini',
     tools=[yelp_search2],

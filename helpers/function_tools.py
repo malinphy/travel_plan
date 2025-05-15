@@ -137,10 +137,11 @@ def flight_search_2(
 @function_tool
 def hotels_search2(q:str, check_in_date:str, check_out_date:str, gl:str):
     f"""
-    Today : {datetime.now().strftime("%Y-%m-%d")}
+    
     Google hotels information from SERPAPI. Returns json structure
     q : Location
     gl : Country
+    Today : {datetime.now().strftime("%Y-%m-%d")}
     """
     params = {
             "engine": "google_hotels",
