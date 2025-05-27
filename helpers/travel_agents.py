@@ -65,7 +65,7 @@ Today : {datetime.now().strftime("%Y-%m-%d")}
 !!! Warning, while tool calling do not send date before today's date
 !!! Warning if q, gl, check_in_date or check_out_date is missing or cannot extract from the sentence, do not determine alone always ask the user.
     """.strip(),
-    model = 'gpt-4o-mini',
+    model = 'gpt-4.1',
     tools=[hotels_search2],
     model_settings=ModelSettings(temperature= 0.0,
                                 #  max_tokens = 4096*2
