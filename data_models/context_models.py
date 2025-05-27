@@ -28,7 +28,7 @@ class Hotel(BaseModel):
         None, description="List of check-out dates in YYYY-MM-DD format."
     )
     gl: Optional[List[str]] = Field(
-        None, description="List of locations or geolocations for the hotel search."
+        None, description="List of country codes.  It's a two-letter country code. (e.g., us for the United States, uk for United Kingdom, or fr for France."
     )    
 
 
