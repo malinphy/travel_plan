@@ -74,7 +74,7 @@ class Property(BaseModel):
     overall_rating: Optional[Union[float, int]] = None  
     reviews: Optional[int] = None 
     ratings: Optional[List[Rating]] = None  
-    location_rating: Union[float, int]
+    location_rating: Optional[Union[float, int]] = None
     reviews_breakdown: Optional[List[ReviewsBreakdown]] = None
     amenities: Optional[List[str]] = None
     eco_certified: Optional[bool] = False
