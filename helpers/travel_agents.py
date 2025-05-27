@@ -44,7 +44,7 @@ Today : {datetime.now().strftime("%Y-%m-%d")}
 
 !!! Warning if departure_id, arrival_id, outbound_date or return_date is missing or cannot extract from the sentence, do not determine alone always ask the user.
 """,
-              model="gpt-4o-mini",
+              model="gpt-4.1",
               # model = 'gpt-4o',
               model_settings=ModelSettings(temperature= 0.0,
                                 #  max_tokens = 4096*8

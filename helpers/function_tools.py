@@ -69,15 +69,14 @@ def flight_to_string(response: dict, flight_key: str) -> str:
     return text_summary
 
 @function_tool
-# def flight_search_2(departure_id: str, arrival_id: str, outbound_data: str, return_data: str) -> str:
 def flight_search_2(
     departure_id: Optional[str] = None, 
     arrival_id: Optional[str] = None, 
-    outbound_data: Optional[str] = None, 
-    return_data: Optional[str] = None
+    outbound_date: Optional[str] = None, 
+    return_date: Optional[str] = None
 ) -> str:
     
-    if departure_id == None and arrival_id == None and outbound_data == None:
+    if departure_id == None and arrival_id == None and outbound_date == None:
         return "If you can inform about departure city, destination city and outbound_data, I can look for the flight tickets"
     
     elif departure_id == None and arrival_id == None : 
@@ -89,7 +88,7 @@ def flight_search_2(
     elif arrival_id == None  : 
         return "If you can inform about destination city, I can look for the flight tickets"
     
-    elif outbound_data == None  : 
+    elif outbound_date == None  : 
         return "If you can inform about departure date, I can look for the flight tickets"
 
     f"""
@@ -110,8 +109,8 @@ def flight_search_2(
         "engine": "google_flights",
         "departure_id": departure_id,
         "arrival_id": arrival_id,
-        "outbound_date": outbound_data,
-        "return_date": return_data,
+        "outbound_date": outbound_date,
+        "return_date": return_date,
         "currency": "USD",
         "hl": "en",
         "deep_search": True,
