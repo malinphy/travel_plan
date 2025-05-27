@@ -141,6 +141,18 @@ def hotels_search2(
     check_out_date:Optional[str] = None, 
     gl:Optional[str] = None
     ):
+    """
+    Searches for hotels using Google Hotels via SerpAPI.
+
+    Args:
+        q (Optional[str]): Location or query string for the hotel search (e.g., city or hotel name).
+        check_in_date (Optional[str]): Check-in date in 'YYYY-MM-DD' format.
+        check_out_date (Optional[str]): Check-out date in 'YYYY-MM-DD' format.
+        gl (Optional[str]): . It's a two-letter country code. (e.g., us for the United States, uk for United Kingdom, or fr for France.
+
+    Returns:
+        str: A formatted string with hotel information or a message if required fields are missing.
+    """
 
     if check_in_date == None and check_out_date == None: 
         return "please identify the check-in and check-out date for more information"
