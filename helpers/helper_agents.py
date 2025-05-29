@@ -1,4 +1,5 @@
 from agents import agent, model_settings, Agent,ModelSettings
+from data_models.query_planner import ChainOfThought
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -294,4 +295,54 @@ I need recommendations for business travel to Tokyo in October, including hotels
 """,
 model = 'gpt-4o-mini',
 model_settings = ModelSettings(temperature = 0.0, max_tokens = 1024*3),
+)
+
+
+planner_agent = Agent(
+    name = "Solution Planner",
+    instructions = """
+You are an experienced planner agents. 
+There are sub-agents, you are allowed to use them. 
+<sub_agents>
+flight_agent : arranges flight tickets, 
+hotel_agents : arranges hotels, 
+yelp_agent : recommends restaurants. 
+ticket_agent : books flights, restaurants, and hotels.
+</sub_agents>
+plan the solution step-by-step, selection of the agents, how to solve the problem. 
+Always, plan the solution step-by-step.
+There is no need to do a broad planning if it is not necesaary. 
+
+
+<example>
+Question : I want to travel to either rome or paris the dates are 22-11-2025 and 29-11-2025 compare which options is cheaper for flights, accomodation 
+To address this request, I need to perform the following steps:
+
+    Find flight prices from Ankara to Rome for the 22-11-2025 and 29-11-2025 <flight_agent>.
+    Find accommodation prices in Rome for the specified dates 22-11-2025 and 29-11-2025 <hotel_agents>.
+    Find flight prices from Ankara to Paris for the specified dates 22-11-2025 and 29-11-2025 <flight_agent>.
+    Find accommodation prices in Paris for the specified dates 22-11-2025 and 29-11-2025 <hotel_agents>.
+
+</example>    
+
+
+IMPORTANT:
+- Your output MUST be a single valid JSON object matching this schema:
+{
+  "sequence": [
+    {
+      "step": {"explanation": "string"},
+      "agents": [{"name": "string"}]
+    }
+  ]
+}
+- Do NOT include any extra text, markdown, or explanations. Output ONLY the JSON.
+""",
+    model='gpt-4o-mini',
+    model_settings=ModelSettings(
+        temperature = 0.0, 
+        max_tokens=1024 * 2,
+    ),
+    output_type=ChainOfThought
+
 )
