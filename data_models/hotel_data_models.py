@@ -1,5 +1,5 @@
 from typing import List, Optional, Dict, Union
-from pydantic import BaseModel, HttpUrl
+from pydantic import BaseModel, HttpUrl,Field
 
 
 class Transportation(BaseModel):
@@ -91,8 +91,7 @@ class BrandChild(BaseModel):
 class Brand(BaseModel):
     id: int
     name: str
-    children: List[BrandChild] = []
-
+    children: List[BrandChild] = Field(default_factory=list)
 
 class SearchMetadata(BaseModel):
     id: str
