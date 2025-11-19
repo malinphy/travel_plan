@@ -1,3 +1,5 @@
+# Agentic Trip Planner
+
 This repository contains a travel planning chatbot built using Python. The chatbot leverages the `agents` library and integrates with external APIs through tools to provide flight and hotel information.
 
 ## Features
