@@ -11,7 +11,7 @@ This repository contains a travel planning chatbot built using Python. The chatb
 
 ## Project Structure
 
-*   `malinphy-travel_plan/`
+*   `travel_plan/`
     *   `README.md`: This file.
     *   `main.py`: The main script for running the chatbot.
     *   `notes.txt`: Developer notes.
