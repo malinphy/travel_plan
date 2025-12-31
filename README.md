@@ -45,7 +45,7 @@ This repository contains a travel planning chatbot built using Python. The chatb
 
 1.  **Clone the repository:**
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/malinphy/travel_plan.git
     cd malinphy-travel_plan
     ```
 2.  **Install dependencies:**
