@@ -2,7 +2,6 @@
 
 A conversational travel planning assistant powered by a multi-agent AI system. Search for flights, hotels, and restaurants through a natural chat interface — with a basket to collect your picks before booking.
 
-![UI Preview](docs/preview.png)
 
 ### Demo
 <video src="assets/travel_agent.mp4" controls="controls" style="max-width: 100%;">
