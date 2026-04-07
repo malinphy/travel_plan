@@ -4,8 +4,9 @@ A conversational travel planning assistant powered by a multi-agent AI system. S
 
 
 ### Demo
-
-![Travel Agent Demo](assets/travel_agent.mp4)
+<video src="assets/travel_agent.mp4" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
 
 ---
 
