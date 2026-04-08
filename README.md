@@ -3,9 +3,7 @@
 A conversational travel planning assistant powered by a multi-agent AI system. Search for flights, hotels, and restaurants through a natural chat interface — with a basket to collect your picks before booking.
 
 ### Demo
-<video src="https://raw.githubusercontent.com/malinphy/travel_plan/main/assets/travel_agent.mp4" type="video/mp4" controls="controls" style="max-width: 100%;">
-  Your browser does not support the video tag.
-</video>
+![AI Travel Agent Demo](assets/travel_agent.gif)
 
 ---
 
